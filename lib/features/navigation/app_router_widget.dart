@@ -26,7 +26,7 @@ class _AppRouterWidgetState extends State<AppRouterWidget> {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.orange,
       ),
     );
   }

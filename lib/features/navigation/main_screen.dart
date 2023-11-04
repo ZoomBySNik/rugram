@@ -20,7 +20,7 @@ class _MainScreenState extends State<MainScreen> {
     AppRoutes.search,
     AppRoutes.video,
     AppRoutes.cart,
-    AppRoutes.profile,
+    AppRoutes.dima,
   ];
 
   int get currentNavigationIndex {
