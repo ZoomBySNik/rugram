@@ -9,11 +9,11 @@ class ProfileInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const double avatarRadius = 15;
+    const double avatarRadius = 65;
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-      child: Row(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
@@ -25,23 +25,44 @@ class ProfileInfo extends StatelessWidget {
                 ),
               ),
               const Padding(
-                padding: EdgeInsets.only(left: 10),
+                padding: EdgeInsets.only(left: 40),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'dsgd',
+                    Text('Barvinskiy Dmitriy',
+                  style: TextStyle(
+                  fontWeight: FontWeight.bold,fontSize: 18
+
+                ),
+                ),
+                    Text('+79115846214',
                       style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w100,fontSize: 18
                       ),
                     ),
-                    Text('sfasa'),
+                  ],
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(left: 40),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('13.02.2002',
+                      style: TextStyle(
+                      fontWeight: FontWeight.bold,fontSize: 18
+                    ),
+                    ),
+                    Text('dbarvinskiy@mail.ru',
+                      style: TextStyle(
+                          fontWeight: FontWeight.w100,fontSize: 18
+                      ),
+                    ),
                   ],
                 ),
               ),
             ],
           ),
-          const Icon(Icons.more_horiz),
         ],
       ),
     );
