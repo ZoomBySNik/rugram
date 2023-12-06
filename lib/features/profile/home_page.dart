@@ -48,7 +48,12 @@ class _MyProfilePageState extends State<MyProfilePage> {
         actions: const [Icon(Icons.add_box_outlined, size: 32,), Icon(Icons.menu_rounded, size: 32,)],
       ),
       body: Column(
-        children: [ProfileInfo(), PostsPreviewGrid()],
+        children: [ProfileInfo(),
+          Column(children: [
+            PostsPreviewGrid()
+          ],
+          ),
+        ],
       )
     );
   }
