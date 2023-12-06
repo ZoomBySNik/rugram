@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:go_router/go_router.dart';
+import 'package:rugram/configuration/navigation/app_routes.dart';
+import 'widgets/profile_info.dart';
 import 'bloc/posts_cubit.dart';
 
 class MyProfilePage extends StatefulWidget {
@@ -13,6 +15,8 @@ class MyProfilePage extends StatefulWidget {
 class _MyProfilePageState extends State<MyProfilePage> {
   late final ScrollController scrollController;
   late final PostsCubit postsCubit;
+
+  get postPreview => null;
 
   @override
   void initState() {
@@ -32,27 +36,19 @@ class _MyProfilePageState extends State<MyProfilePage> {
     return Scaffold(
       backgroundColor: Colors.transparent,
       appBar:  AppBar(
-        backgroundColor: Colors.white,
-        title: const Text('RuGramm', style: TextStyle(fontFamily: 'BlueVinyl'),),
-        centerTitle: true,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new_rounded),
+          onPressed: () {
+            // Переход на главную страницу
+            context.goNamed(AppRoutes.home.name);
+          },
+        ),
+        title: Text('Asdfa sgs'),
+        actions: const [Icon(Icons.add_box_outlined, size: 32,), Icon(Icons.menu_rounded, size: 32,)],
       ),
-      body: BlocBuilder<PostsCubit, PostsState>(
-        bloc: postsCubit,
-        builder: (context, state) {
-          return switch (state) {
-            PostsLoadedState() => ListView.builder(
-              controller: scrollController,
-              itemCount: state.postsInfo.data.length,
-              prototypeItem: Padding(
-                padding: const EdgeInsets.only(top: 36),
-              ),
-              itemBuilder: (context, index) { return Text('data');
-              },
-            ),
-            _ => const Center(child: CircularProgressIndicator()),
-          };
-        },
-      ),
+      body: Column(
+        children: [ProfileInfo()],
+      )
     );
   }
 
