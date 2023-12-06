@@ -32,6 +32,11 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
+      appBar:  AppBar(
+        backgroundColor: Colors.white,
+        title: const Text('RuGramm', style: TextStyle(fontFamily: 'BlueVinyl'),),
+        centerTitle: true,
+      ),
       body: BlocBuilder<PostsCubit, PostsState>(
         bloc: postsCubit,
         builder: (context, state) {
@@ -40,18 +45,15 @@ class _MyHomePageState extends State<MyHomePage> {
                 controller: scrollController,
                 itemCount: state.postsInfo.data.length,
                 prototypeItem: Padding(
-                  padding: const EdgeInsets.only(top: 24),
+                  padding: const EdgeInsets.only(top: 36),
                   child: PostPreviewCard(
                     postPreview: state.postsInfo.data.first,
                   ),
                 ),
                 itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.only(top: 24),
-                    child: PostPreviewCard(
+                  return PostPreviewCard(
                       postPreview: state.postsInfo.data[index],
-                    ),
-                  );
+                    );
                 },
               ),
             _ => const Center(child: CircularProgressIndicator()),
