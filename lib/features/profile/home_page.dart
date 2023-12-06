@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:rugram/configuration/navigation/app_routes.dart';
 import 'widgets/profile_info.dart';
+import 'widgets/posts_preview_grid.dart';
 import 'bloc/posts_cubit.dart';
 
 class MyProfilePage extends StatefulWidget {
@@ -47,7 +48,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
         actions: const [Icon(Icons.add_box_outlined, size: 32,), Icon(Icons.menu_rounded, size: 32,)],
       ),
       body: Column(
-        children: [ProfileInfo()],
+        children: [ProfileInfo(), PostsPreviewGrid()],
       )
     );
   }
