@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:rugram/configuration/navigation/app_routes.dart';
 import 'widgets/profile_info.dart';
 import 'widgets/posts_preview_grid.dart';
-import 'bloc/posts_cubit.dart';
+import 'bloc/users_posts_cubit.dart';
 
 class MyProfilePage extends StatefulWidget {
   const MyProfilePage({super.key});
@@ -44,10 +44,17 @@ class _MyProfilePageState extends State<MyProfilePage> {
             context.goNamed(AppRoutes.home.name);
           },
         ),
-        title: Text('Asdfa sgs'),
-        actions: const [Icon(Icons.add_box_outlined, size: 32,), Icon(Icons.menu_rounded, size: 32,)],
+        title: const Text('po_jizni_lox', style: TextStyle(fontWeight: FontWeight.bold,)),
+        actions: const [Padding(
+          padding: EdgeInsets.only(right: 5),
+          child: Row(
+            children: [
+              Icon(Icons.add_box_outlined, size: 32,),
+              Icon(Icons.menu_rounded, size: 32,)],
+          ),
+        ),],
       ),
-      body: Column(
+      body: const Column(
         children: [ProfileInfo(),
           Column(children: [
             PostsPreviewGrid()

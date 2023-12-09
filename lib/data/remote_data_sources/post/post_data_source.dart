@@ -26,7 +26,19 @@ class PostDataSource {
     return model;
   }
 
-  Future<void> getPostsByUser() async {}
+  Future<ListModel<PostPreview>> getPostsByUser({int? page, String? id}) async {
+    final result = await dio.get(
+      '/user/$id/post',
+      queryParameters: {'page': page},
+    );
+
+    final model = source_source_list_model.ListModel.fromJson(result.data)
+        .toEntity<PostPreview>(
+          (a) => source_post_preview.PostPreview.fromJson(a).toEntity(),
+    ) as ListModel<PostPreview>;
+
+    return model;
+  }
 
   Future<void> getPostsByTag() async {}
 

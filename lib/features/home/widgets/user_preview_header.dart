@@ -37,7 +37,7 @@ class UserPreviewHeader extends StatelessWidget {
                   children: [
                     Text(
                       userPreview.firstName,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -47,7 +47,7 @@ class UserPreviewHeader extends StatelessWidget {
               ),
             ],
           ),
-          Icon(Icons.more_horiz),
+          const Icon(Icons.more_horiz),
         ],
       ),
     );

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class PostsPreviewGrid extends StatefulWidget {
-  PostsPreviewGrid({
+  const PostsPreviewGrid({
     Key? key,
   }) : super(key: key);
 
@@ -30,7 +30,7 @@ class _PostsPreviewGridState extends State<PostsPreviewGrid> {
               crossAxisSpacing: 1,
               mainAxisSpacing: 1,
             ),
-            itemCount: 15,
+            itemCount: 9,
             itemBuilder: (context, index) {
               return GestureDetector(
                 onTap: () {
@@ -39,7 +39,7 @@ class _PostsPreviewGridState extends State<PostsPreviewGrid> {
                   });
                 },
                 child: Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Colors.black12,
                   ),
                 ),
@@ -62,7 +62,7 @@ class _PostsPreviewGridState extends State<PostsPreviewGrid> {
         child: Center(
           child: Text(
             'Выбранный пост $selectedPostIndex',
-            style: TextStyle(color: Colors.white, fontSize: 20.0),
+            style: const TextStyle(color: Colors.white, fontSize: 20.0),
           ),
         ),
       ),
