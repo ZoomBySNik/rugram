@@ -45,6 +45,14 @@ class ProfileInfo extends StatelessWidget {
             ),
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              _buildStatColumn('Публикации', '10'),
+              _buildStatColumn('Подписчики', '1000'),
+              _buildStatColumn('Подписки', '200'),
+            ],
+          ),
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
             TextButton(
@@ -76,4 +84,26 @@ class ProfileInfo extends StatelessWidget {
       ),
     );
   }
+  Widget _buildStatColumn(String label, String value) {
+    return Column(
+      children: [
+        Text(
+          value,
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        Text(
+          label,
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 14,
+          ),
+        ),
+      ],
+    );
+  }
 }
+
