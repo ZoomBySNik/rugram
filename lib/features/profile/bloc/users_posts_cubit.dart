@@ -27,7 +27,7 @@ class PostsCubit extends Cubit<PostsState> {
   Future<void> init() async {
     emit(PostsLoadingState());
     page = 1;
-    final postsInfo = await postDataSource.getPostsByUser(page: page, id: '60d0fe4f5311236168a109fa');
+    final postsInfo = await postDataSource.getPostsByUser(page: page, id: '60d0fe4f5311236168a10a19');
     emit(PostsLoadedState(postsInfo: postsInfo));
   }
 

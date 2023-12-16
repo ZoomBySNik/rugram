@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:rugram/configuration/navigation/app_routes.dart';
+import '../home/widgets/post_preview_card.dart';
 import 'widgets/profile_info.dart';
 import 'widgets/posts_preview_grid.dart';
 import 'bloc/users_posts_cubit.dart';
@@ -54,13 +55,37 @@ class _MyProfilePageState extends State<MyProfilePage> {
           ),
         ),],
       ),
-      body: const Column(
-        children: [ProfileInfo(),
+      body: SingleChildScrollView( child: Column(
+        children: [
+          ProfileInfo(),
           Column(children: [
-            PostsPreviewGrid()
+            BlocBuilder<PostsCubit, PostsState>(
+              bloc: postsCubit,
+              builder: (context, state) {
+                return switch (state) {
+                  PostsLoadedState() => ListView.builder(
+                    controller: scrollController,
+                    itemCount: state.postsInfo.data.length,
+                    prototypeItem: Padding(
+                      padding: const EdgeInsets.only(top: 36),
+                      child: PostPreviewCard(
+                        postPreview: state.postsInfo.data.first,
+                      ),
+                    ),
+                    itemBuilder: (context, index) {
+                      return PostPreviewCard(
+                        postPreview: state.postsInfo.data[index],
+                      );
+                    },
+                  ),
+                  _ => const Center(child: CircularProgressIndicator()),
+                };
+              },
+            ),
           ],
           ),
         ],
+      )
       )
     );
   }
