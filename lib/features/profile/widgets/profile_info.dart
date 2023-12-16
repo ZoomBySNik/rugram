@@ -54,7 +54,7 @@ class ProfileInfo extends StatelessWidget {
                   foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
                   padding: MaterialStateProperty.all(const EdgeInsets.symmetric(horizontal: 20, vertical: 0))
                 ),
-                child: const Text('Написать', style: TextStyle(height: 0),)),
+                child: const Text('Изменить', style: TextStyle(height: 0),)),
             TextButton(
                 onPressed: () { },
                 style: ButtonStyle(
@@ -62,7 +62,7 @@ class ProfileInfo extends StatelessWidget {
                     foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
                     padding: MaterialStateProperty.all(const EdgeInsets.symmetric(horizontal: 20, vertical: 0))
                 ),
-                child: const Text('Подписаться', style: TextStyle(height: 0),)),
+                child: const Text('Поделиться профилем', style: TextStyle(height: 0),)),
             TextButton(
                 onPressed: () { },
                 style: ButtonStyle(
