@@ -13,7 +13,7 @@ class ProfileInfo extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Row(
             children: [
@@ -24,7 +24,14 @@ class ProfileInfo extends StatelessWidget {
                 ),
               ),
             ],
-
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              _buildStatColumn('Публикации', '10'),
+              _buildStatColumn('Подписчики', '1000'),
+              _buildStatColumn('Подписки', '200'),
+            ],
           ),
           const Padding(
             padding: EdgeInsets.only(left: 20),
@@ -44,14 +51,7 @@ class ProfileInfo extends StatelessWidget {
               ],
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              _buildStatColumn('Публикации', '10'),
-              _buildStatColumn('Подписчики', '1000'),
-              _buildStatColumn('Подписки', '200'),
-            ],
-          ),
+
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -71,14 +71,7 @@ class ProfileInfo extends StatelessWidget {
                     padding: MaterialStateProperty.all(const EdgeInsets.symmetric(horizontal: 20, vertical: 0))
                 ),
                 child: const Text('Поделиться профилем', style: TextStyle(height: 0),)),
-            TextButton(
-                onPressed: () { },
-                style: ButtonStyle(
-                    backgroundColor:  MaterialStateProperty.all<Color>(Colors.black12),
-                    foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
-                    padding: MaterialStateProperty.all(const EdgeInsets.symmetric(horizontal: 20, vertical: 0))
-                ),
-                child: const Text('Эл. адрес', style: TextStyle(height: 0),)),
+
           ],)
         ],
       ),
