@@ -31,6 +31,14 @@ class PostsCubit extends Cubit<PostsState> {
     emit(PostsLoadedState(postsInfo: postsInfo));
   }
 
+  Future<void> initWithTag({required String tag}) async {
+    emit(PostsLoadingState());
+    page = 1;
+    final postsInfo = await postDataSource.getPostsByTag(page: page, tag: tag);
+
+    emit(PostsLoadedState(postsInfo: postsInfo));
+  }
+
   Future<void> nextPage() async {
     final oldState = state;
 

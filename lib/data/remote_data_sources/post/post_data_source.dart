@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:rugram/data/remote_data_sources/models/list_model.dart'
-    as source_source_list_model;
+as source_source_list_model;
 import 'package:rugram/data/remote_data_sources/models/post_preview.dart'
-    as source_post_preview;
+as source_post_preview;
 import 'package:rugram/domain/models/list_model.dart';
 import 'package:rugram/domain/models/post_create.dart';
 import 'package:rugram/domain/models/post_preview.dart';
@@ -20,16 +20,15 @@ class PostDataSource {
 
     final model = source_source_list_model.ListModel.fromJson(result.data)
         .toEntity<PostPreview>(
-      (a) => source_post_preview.PostPreview.fromJson(a).toEntity(),
+          (a) => source_post_preview.PostPreview.fromJson(a).toEntity(),
     ) as ListModel<PostPreview>;
 
     return model;
   }
 
-  Future<ListModel<PostPreview>> getPostsByUser({int? page, String? id}) async {
+  Future<ListModel<PostPreview>> getPostsByTag({int? page, required String tag}) async {
     final result = await dio.get(
-      '/user/$id/post',
-      queryParameters: {'page': page},
+      '/tag/' + tag + '/post?limit=100',
     );
 
     final model = source_source_list_model.ListModel.fromJson(result.data)
@@ -40,7 +39,7 @@ class PostDataSource {
     return model;
   }
 
-  Future<void> getPostsByTag() async {}
+  Future<void> getPostsByUser() async {}
 
   Future<void> getPostById() async {}
 

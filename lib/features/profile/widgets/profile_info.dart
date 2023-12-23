@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 
 class ProfileInfo extends StatelessWidget {
 
+  final String nickname;
+
   const ProfileInfo({
     super.key,
+    required this.nickname,
   });
 
   @override
@@ -15,7 +18,10 @@ class ProfileInfo extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               CircleAvatar(
                 radius: avatarRadius,
@@ -23,56 +29,25 @@ class ProfileInfo extends StatelessWidget {
                   borderRadius: BorderRadius.circular(avatarRadius),
                 ),
               ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
               _buildStatColumn('Публикации', '10'),
               _buildStatColumn('Подписчики', '1000'),
               _buildStatColumn('Подписки', '200'),
             ],
           ),
-          const Padding(
-            padding: EdgeInsets.only(left: 20),
-            child: Column(
+          Padding(
+            padding: const EdgeInsets.only(top: 8),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Text('Barvinskiy Dmitriy',
-                  style: TextStyle(
+                Text(nickname,
+                  style: const TextStyle(
                       fontWeight: FontWeight.bold,fontSize: 12
 
-                  ),
-                ),
-                Text('13.02.2002',
-                  style: TextStyle(
-                      fontWeight: FontWeight.w400,fontSize: 12
                   ),
                 ),
               ],
             ),
           ),
-
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-            TextButton(
-                onPressed: () { },
-                style: ButtonStyle(
-                  backgroundColor:  MaterialStateProperty.all<Color>(Colors.black12),
-                  foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
-                  padding: MaterialStateProperty.all(const EdgeInsets.symmetric(horizontal: 20, vertical: 0))
-                ),
-                child: const Text('Изменить', style: TextStyle(height: 0),)),
-            TextButton(
-                onPressed: () { },
-                style: ButtonStyle(
-                    backgroundColor:  MaterialStateProperty.all<Color>(Colors.black12),
-                    foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
-                    padding: MaterialStateProperty.all(const EdgeInsets.symmetric(horizontal: 20, vertical: 0))
-                ),
-                child: const Text('Поделиться профилем', style: TextStyle(height: 0),)),
-
-          ],)
         ],
       ),
     );

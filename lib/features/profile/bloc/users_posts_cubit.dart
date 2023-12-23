@@ -7,7 +7,9 @@ sealed class PostsState {}
 
 class PostsInitialState extends PostsState {}
 
-class PostsLoadingState extends PostsState {}
+class PostsLoadingState extends PostsState {
+
+}
 
 class PostsLoadedState extends PostsState {
   final ListModel<PostPreview> postsInfo;
@@ -27,7 +29,8 @@ class PostsCubit extends Cubit<PostsState> {
   Future<void> init() async {
     emit(PostsLoadingState());
     page = 1;
-    final postsInfo = await postDataSource.getPostsByUser(page: page, id: '60d0fe4f5311236168a10a19');
+    final postsInfo = await postDataSource.getPostsByTag(page: page, tag: 'dog');
+
     emit(PostsLoadedState(postsInfo: postsInfo));
   }
 
