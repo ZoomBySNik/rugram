@@ -79,7 +79,7 @@ class _MyProfilePage extends State<MyProfilePage>
                                 foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
                                 padding: MaterialStateProperty.all(const EdgeInsets.symmetric(horizontal: 20, vertical: 0))
                             ),
-                            child: const Text('Изменить', style: TextStyle(height: 0),)),
+                            child: const Text('Изменить профиль', style: TextStyle(height: 0),)),
                         TextButton(
                             onPressed: () { },
                             style: ButtonStyle(
@@ -155,7 +155,7 @@ class _MyProfilePage extends State<MyProfilePage>
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Редактирование профиля'),
+          title: const Text('Изменение имени профиля'),
           content: TextFormField(
             controller: nameController,
             decoration: const InputDecoration(labelText: 'Новое имя'),
