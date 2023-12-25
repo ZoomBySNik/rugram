@@ -133,7 +133,6 @@ class _MyProfilePage extends State<MyProfilePage>
     postsCubit = PostsCubit(context.read())..initWithTag(tag: "person");
     profileDataSource = context.read<ProfileDataSource>();
     init();
-    // loadImages();
   }
 
   Future<void> init() async {
@@ -169,27 +168,6 @@ class _MyProfilePage extends State<MyProfilePage>
               child: const Text('Сохранить'),
             ),
           ],
-        );
-      },
-    );
-  }
-
-  void showFullScreenImage(String imageUrl) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return Dialog(
-          child: GestureDetector(
-            onTap: () {
-              Navigator.of(context).pop();
-            },
-            child: Image.network(
-              imageUrl,
-              height: 80,
-              width: 80,
-              fit: BoxFit.cover,
-            ),
-          ),
         );
       },
     );
